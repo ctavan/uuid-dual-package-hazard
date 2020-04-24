@@ -4,10 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --experimental-modules dual-package-hazard.js"
+    "test": "node --experimental-modules dual-package-hazard.js",
+    "rollup": "rollup -c && node dual-package-hazard.dist.cjs"
   },
   "dependencies": {
     "uuid": "uuidjs/uuid#node-esm-with-hazard-built",
     "uuid-dual-package-hazard": "ctavan/uuid-dual-package-hazard#with-hazard-dependency"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-node-resolve": "^7.1.3",
+    "rollup": "^2.7.2"
   }
 }

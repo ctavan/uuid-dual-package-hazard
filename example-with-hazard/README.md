@@ -29,3 +29,17 @@ AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
   operator: 'strictEqual'
 }
 ```
+
+When bundling with rollup the hazard does not show up:
+
+```
+node hazard.dist.cjs
+direct v1 #1 1fbd55e0-8602-11ea-84af-f1eeb413e2ed
+direct v1 #2 1fbd55e1-8602-11ea-84af-f1eeb413e2ed
+hazard v1 #1 1fbd55e2-8602-11ea-84af-f1eeb413e2ed
+hazard v1 #2 1fbd55e3-8602-11ea-84af-f1eeb413e2ed
+```
+
+This is due to the fact that rollup will always resolve to the _same_ (ES Module) source files for
+the `uuid` module, irrespective of whether it is `require()`d in a CommonJS module or `import`ed in
+an ES Module.
