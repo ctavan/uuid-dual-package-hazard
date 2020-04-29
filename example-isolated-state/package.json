@@ -8,8 +8,8 @@
     "rollup": "rollup -c && node dual-package-hazard.dist.cjs"
   },
   "dependencies": {
-    "uuid": "uuidjs/uuid#node-esm-isolated-state-built",
-    "uuid-dual-package-hazard": "ctavan/uuid-dual-package-hazard#isolated-state-dependency"
+    "uuid": "file:./uuid-esm-isolated-state.tgz",
+    "uuid-dual-package-hazard": "file:./uuid-dual-package-hazard-isolated-state-dependency.tgz"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.1.0",
